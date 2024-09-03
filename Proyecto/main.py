@@ -1,3 +1,4 @@
+import os
 productos = [
     {"nombre": "Anillo de diamante", "precio": 1000, "cantidad": 5},
     {"nombre": "Anillo de cuarzo", "precio": 20, "cantidad": 8},
@@ -6,6 +7,10 @@ productos = [
 ]
 
 carrito = []
+
+def limpiarTerminal():
+    if os.name == 'nt': os.system('cls') #Windows
+    else: os.system('clear')#Linux o Mac
 
 def mostrar_productos():
     print(" -----------------------/Menú de productos-----------------------------------")
@@ -54,6 +59,7 @@ def finalizar_compra():
         print("No hay productos")
 
 def main():
+    limpiarTerminal()
     while True: 
         print(" -----------------------////-----------------------------------------")
         print("1-Mostrar productos disponibles")
@@ -67,12 +73,16 @@ def main():
             
             if selection == 1:
                 mostrar_productos()
+                limpiarTerminal()
             elif selection == 2:
                 agregar_al_carrito()
+                limpiarTerminal()
             elif selection == 3:
                 mostrar_carrito()
+                limpiarTerminal()
             elif selection == 4:
                 finalizar_compra()
+                limpiarTerminal()
             elif selection == 5:
                 break
             else:
